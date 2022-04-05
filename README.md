@@ -1,0 +1,2 @@
+# extension
+sExt = InputBox("Assign an app to a file type", "Enter file type to alter ", ".txt") $sExt = "." &amp; StringReplace($sExt, ".", "")   ; to ensure a single dot as prefix $sCmd = "ASSOC " &amp; $sExt $sResult = _CmdResult($sCmd) If StringLeft($sResult, 1) &lt;> "." Then Exit MsgBox(16 + 262144, Default, $sResult, 0)   ; extension NOT found $aArray = StringSplit($sResult, "=") $sFtype = StringTrimRight($aArray[2]
